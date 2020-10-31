@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:o="http://omnifaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>REGISTRA</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit style="background-color: black;" position="north" size="135" resizable="true" closable="true" collapsible="true">
+                    <h:graphicImage url="/resources/images/auca.jpg"/>
+                </p:layoutUnit>
+
+                <p:layoutUnit style="background-color: black;" position="south" size="20" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit  style="background-color: black;" position="west" size="245"  >
+                    <p:menu>
+                        <p:submenu label="AUCA MENU">
+                            <p:menuitem value="Dashboard" outcome="/dashboard"/>
+                            <p:menuitem value="Add a faculty" outcome="/add-faculty"  />
+                            <p:menuitem value="Add a department" outcome="/add-department"/>
+                            <p:menuitem value="Pending applications" outcome="/pending-applications" />
+                            <p:menuitem value="Aproved Applications" outcome="/approved-applications" />
+                            <p:menuitem value="Rejected Applications" outcome="/rejected-applications"/>
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <b:panel title="NEW DEPARTMENT" collapsible="false"  look="info" style="margin-left: 10%;margin-right: 10%">
+                        <b:messages style="text-decoration: none;" class="alert alert-error" />
+                        <h:form>
+                            <b:panelGrid columns="2" col-spans="3,9" style="margin-left: 10%;margin-right: 10%">
+
+                                <h:outputLabel>Department ID</h:outputLabel>
+                                <b:inputText value="#{sm.departmentID()}" readonly="true"/>
+                                <h:outputLabel>Faculty</h:outputLabel>
+                                <b:selectOneMenu class="combo" value="#{dm.faculty_id}" required="true" requiredMessage="choose the department category">
+                                    <f:selectItem itemLabel="Select" itemValue="" />
+                                    <f:selectItems value="#{dm.allFaculties()}" var="a" itemValue="#{a.id}"/>
+                                </b:selectOneMenu>
+                                <h:outputLabel>Department Name</h:outputLabel>
+                                <b:inputText value="#{dm.departmentName}" required="true" requiredMessage="Specify the new department's name"/>
+                                <br/>
+                                <b:commandButton type="submit" value="Add Department" style="background-color:#F78600;font-weight: bold;color: #fff;" action="#{dm.asaveDept()}"/>
+                            </b:panelGrid>
+                        </h:form>
+                    </b:panel>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

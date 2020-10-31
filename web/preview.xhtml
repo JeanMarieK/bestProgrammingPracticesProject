@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <b:panel title="APPLICATION PREVIEW" collapsible="false" look="info">
+                        <h:form class="form-group" enctype="multipart/form-data">
+                            <b:panelGrid columns="2" col-spans="2,10" >
+
+                                <h:outputLabel>Passport Photo</h:outputLabel>
+                                <p:fileUpload value="#{sm.pic}" mode="simple"  label="Choose (jpg,png)" skinSimple="true" sizeLimit="1048576"/>
+                                <h:outputLabel>Student ID</h:outputLabel>
+                                <h:outputLabel>: #{sm.studentID()}</h:outputLabel>
+                                <h:outputLabel >First Name</h:outputLabel>
+                                <h:outputLabel>: #{sm.firstName}</h:outputLabel>
+                                <h:outputLabel >Last Name</h:outputLabel>
+                                <h:outputLabel>: #{sm.lastName}</h:outputLabel>
+                                <h:outputLabel  >National Id /Passport</h:outputLabel>
+                                <h:outputLabel >: #{sm.nid}</h:outputLabel>
+                                <h:outputLabel >Date of Birth</h:outputLabel>
+                                <h:outputLabel>  : #{sm.dob}</h:outputLabel>
+                                <h:outputLabel >  Gender   </h:outputLabel>
+                                <h:outputLabel>  : #{sm.gender}   </h:outputLabel>
+                                <h:outputLabel >  Disability   </h:outputLabel>
+                                <h:outputLabel>  : #{sm.disability}   </h:outputLabel>
+                                <h:outputLabel >   Faculty  </h:outputLabel>
+                                <h:outputLabel>   : #{sm.faculty}  </h:outputLabel>
+                                <h:outputLabel >  Department   </h:outputLabel>
+                                <h:outputLabel>  : #{sm.department}   </h:outputLabel>
+                                <h:outputLabel >  Phone number   </h:outputLabel>
+                                <h:outputLabel>  : #{sm.phoneNumber}   </h:outputLabel>
+                                <h:outputLabel >  Email   </h:outputLabel>
+                                <h:outputLabel>   : #{sm.email}  </h:outputLabel>
+                                <h:outputLabel >   Mother's Name  </h:outputLabel>
+                                <h:outputLabel>  : #{sm.motherName}   </h:outputLabel>
+                                <h:outputLabel > Mother's Number    </h:outputLabel>
+                                <h:outputLabel>   : #{sm.motherNumber}  </h:outputLabel>
+                                <h:outputLabel >  Father's Name   </h:outputLabel>
+                                <h:outputLabel>   : #{sm.fatherName}  </h:outputLabel>
+                                <h:outputLabel >  Father's Number   </h:outputLabel>
+                                <h:outputLabel>   : #{sm.fatherNumber}  </h:outputLabel>
+                                <h:outputLabel >  Province   </h:outputLabel>
+                                <h:outputLabel>  : #{sm.province}   </h:outputLabel>
+                                <h:outputLabel >   District  </h:outputLabel>
+                                <h:outputLabel>   : #{sm.district}  </h:outputLabel>
+                                <h:outputLabel >  Sector   </h:outputLabel>
+                                <h:outputLabel>   : #{sm.sector}  </h:outputLabel>
+                                <h:outputLabel >  Cell   </h:outputLabel>
+                                <h:outputLabel>  : #{sm.cell}   </h:outputLabel>
+                                <h:outputLabel >  Village   </h:outputLabel>
+                                <h:outputLabel>  : #{sm.village}   </h:outputLabel>
+                                <p:commandButton value="Register" styleClass="btn btn-success" action="#{sm.saveStudent()}" ajax="false"/>
+                            </b:panelGrid>
+                            
+                        </h:form>
+                    </b:panel>
+    </h:body>
+</html>
+
